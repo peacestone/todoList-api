@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::post('/tasks', controller@create);
+Route::get('/tasks', controller@index);
+Route::get('/tasks/{id}/notes', controller@indexNote);
+Route::post('/tasks/{id}/note', controller@createNote);
