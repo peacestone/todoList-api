@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Task;
 use App\Note;
 
 class notesController extends Controller
 {
-    public function index(Request $request, $id){
+    public function index(Request $request, $taskId){
 
-        $task = Task::find($id);
-        $page = $request->input('page');
-        //TODO implment pagination
-        return response()->json($task->notes);
+        $notes = Note::where( 'notes.task_id', $taskId )->paginate(10);
+        return response()->json($notes);
 
     }
 
@@ -34,3 +33,6 @@ class notesController extends Controller
         }
     }
 }
+
+
+// >>> $test = DB::table('notes')->orderBy('id', 'desc')->limit(10)->get();
