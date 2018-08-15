@@ -32,13 +32,7 @@ class tasksController extends Controller
     }
 
     public function show($id){
-        return 'showing ' . $id;
+        return response()->json(Task::find($id));
     }
 
 }
-
-// $task = new Task([
-//     'content' => 'wosome',
-//     'dueDate' => '2018-09-09',
-//     'email' => 'dddddmail'
-// ]);
