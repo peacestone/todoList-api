@@ -2,16 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Http\Request;
+
 
 class tasksController extends Controller
 {
     public function create(Request $request){
         $content = $request->input('content');
-        return 'createdd task: ' . $content;
+        $task = new Task([
+            'content' => $request->input('content'),
+            'dueDate' => $request->input('dueDate'),
+            'email' => $request->input('email')
+        ]);
+
+        if ($task->save()) {
+            return response()->json($task);
+        }
+        else {
+            return response()->json([
+                'error' => 'could not persist data to database!'
+            ]);
+        }
+
     }
 
     public function index(){
-        return 'a bunch of tasks';
+        return response()->json(Task::all());
     }
+
+    public function show($id){
+        return 'showing ' . $id;
+    }
+
 }
+
+// $task = new Task([
+//     'content' => 'wosome',
+//     'dueDate' => '2018-09-09',
+//     'email' => 'dddddmail'
+// ]);

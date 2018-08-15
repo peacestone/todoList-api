@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('tasks', 'tasksController@create');
 Route::get('tasks', 'tasksController@index');
+Route::get('tasks/{id}', 'tasksController@show');
 
 Route::get('/tasks/{id}/notes', 'notesController@index');
 Route::post('tasks/{id}/notes', 'notesController@create');
