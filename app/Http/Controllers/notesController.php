@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Mail;
 use App\Task;
 use App\Note;
+use App\Mail\NoteAdded;
 
 class notesController extends Controller
 {
@@ -18,12 +19,13 @@ class notesController extends Controller
     }
 
     public function create(Request $request, $id){
-        echo $id;
         $task = Task::find($id);
         $note = new Note([
             'content' => $request->input('content')
         ]);
         if ($task->notes()->save($note)){
+            
+            Mail::to($task->email)->send(new NoteAdded($note, $task));
             return response()->json($note);
         }
         else {
@@ -33,6 +35,3 @@ class notesController extends Controller
         }
     }
 }
-
-
-// >>> $test = DB::table('notes')->orderBy('id', 'desc')->limit(10)->get();

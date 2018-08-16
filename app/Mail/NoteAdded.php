@@ -16,9 +16,10 @@ class NoteAdded extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($note, $task)
     {
-        //
+        $this->note = $note;
+        $this->task = $task;   
     }
 
     /**
@@ -28,6 +29,14 @@ class NoteAdded extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        echo $this->task->email;
+        return $this->subject('Note added for task id#' . $this->task->id)
+        ->view('emails.noteAdded', [
+            'taskId' => $this->task->id,
+            'taskDueDate' => $this->task->dueDate,
+            'taskDescription' => $this->task->content,
+            'noteId' => $this->note->id,
+            'noteContent' => $this->note->content
+        ]);
     }
 }
