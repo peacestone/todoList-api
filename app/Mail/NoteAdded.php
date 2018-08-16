@@ -29,14 +29,15 @@ class NoteAdded extends Mailable
      */
     public function build()
     {
-        echo $this->task->email;
+        echo $this->note->img_url;
         return $this->subject('Note added for task id#' . $this->task->id)
         ->view('emails.noteAdded', [
             'taskId' => $this->task->id,
             'taskDueDate' => $this->task->dueDate,
             'taskDescription' => $this->task->content,
             'noteId' => $this->note->id,
-            'noteContent' => $this->note->content
+            'noteContent' => $this->note->content,
+            'img_url' => $this->note->img_url
         ]);
     }
 }

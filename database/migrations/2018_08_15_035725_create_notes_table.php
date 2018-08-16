@@ -17,7 +17,8 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('task_id');
-            $table->string('content');
+            $table->string('content')->nullable($value = true);
+            $table->string('img_url')->nullable($value = true);
         });
     }
 

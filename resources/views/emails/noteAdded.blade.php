@@ -12,6 +12,11 @@
     <strong>Due Date:</strong>{{$taskDueDate}} <br/>
     <strong>Task Description:</strong>{{$taskDescription}}<br/>
     <strong>Note id:</strong> {{$noteId}} <br/>
-    <strong>Note Content:</strong>{{$noteContent}} <br/>
+    @if (isset ($img_url))
+        <img src="{{$message->embed(public_path().$img_url)}}"></img> <br/>
+    @else
+        <strong>Note Content:</strong>{{$noteContent}} <br/>
+    @endif
+
 </body>
 </html>

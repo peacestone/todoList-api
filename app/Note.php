@@ -13,6 +13,6 @@ class Note extends Model
         return $this->belongsTo('App\Task');
     }
 
-    protected $fillable = ['content'];
+    protected $fillable = ['content', "img_url"];
 
 }
