@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
+use App\Mail\TaskAdded;
 
 class tasksController extends Controller
 {
@@ -17,6 +19,9 @@ class tasksController extends Controller
         ]);
 
         if ($task->save()) {
+            echo 'saved';
+             Mail::to($task->email)->send(new TaskAdded($task));
+
             return response()->json($task);
         }
         else {
