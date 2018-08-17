@@ -33,7 +33,8 @@ class tasksController extends Controller
     }
 
     public function index(){
-        return response()->json(Task::all());
+
+        return response()->json(Task::with('notes')->get());
     }
 
     public function show($id){
