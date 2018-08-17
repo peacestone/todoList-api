@@ -8,7 +8,7 @@ class Task extends Model
 {
     public function notes()
     {
-        return $this->hasMany('App\Note');
+        return $this->hasMany('App\Note')->limit(10);
     }
 
     protected $fillable = ['content', 'dueDate', 'email'];
