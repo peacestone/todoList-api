@@ -18,6 +18,11 @@ class Note extends Model
        return $this->created_at->diffForHumans();
     }
 
+    public function notification()
+    {
+        return $this->morphOne('App\Notification', 'notificationable');
+    }
+
     protected $fillable = ['content', "img_url"];
 
     protected $appends = ['created_time_ago'];

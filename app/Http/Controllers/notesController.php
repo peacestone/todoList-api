@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input as input;
 use App\Task;
 use App\Note;
 use App\Mail\NoteAdded;
+use Illuminate\Support\Facades\Notification;
 
 class notesController extends Controller
 {
@@ -26,9 +27,6 @@ class notesController extends Controller
          if (Input::hasFile('picture')){
 
             if (Input::file('picture')->isValid()){
-
-                echo 'great';
-
                 $file = Input::File('picture');
                 $file->move('uploads', $file->getClientOriginalName());
                 $note = new Note([
@@ -36,6 +34,11 @@ class notesController extends Controller
                 ]);
                 $task->notes()->save($note);
                 Mail::to($task->email)->send(new NoteAdded($note, $task));
+
+                $notification = new Notification;
+
+                $note->notification()->save($notification);
+
                 return response()->json($note);
                     }
             else{

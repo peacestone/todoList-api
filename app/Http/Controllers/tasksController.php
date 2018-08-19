@@ -19,7 +19,7 @@ class tasksController extends Controller
         ]);
 
         if ($task->save()) {
-             //Mail::to($task->email)->send(new TaskAdded($task));
+             Mail::to($task->email)->send(new TaskAdded($task));
             return response($task->toJson());
         }
         else {

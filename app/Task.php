@@ -11,16 +11,12 @@ class Task extends Model
         return $this->hasMany('App\Note')->latest()->limit(10);
     }
 
+    public function notification()
+    {
+        return $this->morphOne('App\Notification', 'notificationable');
+    }
+
     protected $fillable = ['content', 'dueDate', 'email'];
 
-    public function viewableNotes(){
 
-        // $offset = $pageNumber * 10;
-        // echo $offset;
-        // return $this->hasMany('App\Note')->offset(2)->limit(10);
-        // return Note::join('tasks', 'notes.task_id', '=', 'tasks.id' )->offset(10)->orderBy('id')
-
-        // return Note::where('task_id', '=', $this->id);
-
-    }
 }
