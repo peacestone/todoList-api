@@ -13,6 +13,14 @@ class Note extends Model
         return $this->belongsTo('App\Task');
     }
 
+    public function getCreatedTimeAgoAttribute() 
+    {
+       return $this->created_at->diffForHumans();
+    }
+
     protected $fillable = ['content', "img_url"];
+
+    protected $appends = ['created_time_ago'];
+
 
 }

@@ -15,7 +15,7 @@ class notesController extends Controller
 {
     public function index(Request $request, $taskId){
 
-        $notes = Note::where( 'notes.task_id', $taskId )->paginate(10);
+        $notes = Note::where( 'notes.task_id', $taskId )->latest()->paginate(10);
         return response()->json($notes);
 
     }
@@ -26,6 +26,9 @@ class notesController extends Controller
          if (Input::hasFile('picture')){
 
             if (Input::file('picture')->isValid()){
+
+                echo 'great';
+
                 $file = Input::File('picture');
                 $file->move('uploads', $file->getClientOriginalName());
                 $note = new Note([
@@ -47,8 +50,9 @@ class notesController extends Controller
             ]);
 
             if ($task->notes()->save($note)){
-            
+                
                 Mail::to($task->email)->send(new NoteAdded($note, $task));
+
                 return response()->json($note);
             }
             else {
