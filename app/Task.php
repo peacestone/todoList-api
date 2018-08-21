@@ -11,10 +11,10 @@ class Task extends Model
         return $this->hasMany('App\Note')->latest()->limit(10);
     }
 
-    public function notification()
-    {
-        return $this->morphOne('App\Notification', 'notificationable');
-    }
+    // public function notification()
+    // {
+    //     return $this->morphOne('App\Notification', 'notificationable');
+    // }
 
     protected $fillable = ['content', 'dueDate', 'email'];
 

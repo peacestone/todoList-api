@@ -32,12 +32,10 @@ class notesController extends Controller
                 $note = new Note([
                     'img_url' => '/uploads/' . $file->getClientOriginalName(),
                 ]);
+                
+
                 $task->notes()->save($note);
                 Mail::to($task->email)->send(new NoteAdded($note, $task));
-
-                $notification = new Notification;
-
-                $note->notification()->save($notification);
 
                 return response()->json($note);
                     }
@@ -48,6 +46,9 @@ class notesController extends Controller
             }
         }
         else {
+            $request->validate([
+                'content' => 'required',
+            ]);
             $note = new Note([
                 'content' => $request->input('content')
             ]);

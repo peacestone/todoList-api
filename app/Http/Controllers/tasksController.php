@@ -11,14 +11,21 @@ use App\Mail\TaskAdded;
 class tasksController extends Controller
 {
     public function create(Request $request){
+
+       $request->validate([
+            'content' => 'required',
+        ]);
+
         $content = $request->input('content');
+
         $task = new Task([
             'content' => $request->input('content'),
             'dueDate' => $request->input('dueDate'),
             'email' => $request->input('email')
         ]);
 
-        if ($task->save()) {
+
+        if ($task->save() ) {
              Mail::to($task->email)->send(new TaskAdded($task));
             return response($task->toJson());
         }
@@ -32,7 +39,9 @@ class tasksController extends Controller
 
     public function index(){
 
-        return response()->json(Task::with('notes')->get());
+        // return response()->json(Task::with('notes')->get());
+         return response()->json(Task::all());
+
     }
 
     public function show($id){
