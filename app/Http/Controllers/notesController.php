@@ -35,7 +35,7 @@ class notesController extends Controller
                 $file = Input::File('picture');
                 $file->move('uploads', $file->getClientOriginalName());
                 $note = new Note([
-                    'img_url' => 'uploads/' . $file->getClientOriginalName(),
+                    'img_url' => '/uploads/' . $file->getClientOriginalName(),
                 ]);
                 
                 $task->notes()->save($note);
