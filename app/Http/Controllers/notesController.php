@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Input as input;
+use illuminate\Support\Facades\Log;
 
 use App\Task;
 use App\Note;
@@ -33,12 +34,12 @@ class notesController extends Controller
                     'img_url' => '/uploads/' . $file->getClientOriginalName(),
                 ]);
                 
-
                 $task->notes()->save($note);
-                Mail::to($task->email)->send(new NoteAdded($note, $task));
-
-                // return response()->json($note);
-                return response($note)
+                // echo $note;
+                //Mail::to($task->email)->send(new NoteAdded($note, $task));
+                // $json = $note->toJson();
+                return response()->json($note);
+                // return response($json);
                     }
             else{
                 return response()->json([
