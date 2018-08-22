@@ -35,9 +35,10 @@ class notesController extends Controller
                 ]);
                 
                 $task->notes()->save($note);
-                // echo($note);
-                //Mail::to($task->email)->send(new NoteAdded($note, $task));
-                // $json = $note->toJson();
+                Mail::to($task->email)->send(new NoteAdded($note, $task));
+                // $json = $note->toJson();php
+                // echo $note;
+                echo 'hi';
                 return response()->json($note);
                 // return response($json);
                     }
