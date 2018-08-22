@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\TaskAdded;
+use Illuminate\Support\Facades\Request;
 
 class tasksController extends Controller
 {
@@ -26,7 +27,7 @@ class tasksController extends Controller
 
 
         if ($task->save() ) {
-             Mail::to($task->email)->send(new TaskAdded($task));
+            Mail::to($task->email)->send(new TaskAdded($task));
             return response($task->toJson());
         }
         else {
@@ -44,8 +45,21 @@ class tasksController extends Controller
 
     }
 
-    public function show($id){
-        return response()->json(Task::find($id));
+    public function show(Request $request, $id){
+        $task = Task::find($id);
+
+        if($request()->wantsJson()) 
+        {
+            return response()->json($task);
+        }
+        return view('task', $task );
+        
+        
+
+    }
+
+    public function task($id) {
+         $task = Task::find($id);
     }
 
 }
