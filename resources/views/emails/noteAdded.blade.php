@@ -8,7 +8,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <a href="https://cool-todo-list.herokuapp.com/tasks/{{$taskId}}/notes"> here to view this email in your browser</a> <br>
+    <a href="https://cool-todo-list.herokuapp.com/tasks/{{$taskId}}/notes"> click here to view this email in your browser</a> <br>
     <strong>Task id:</strong>{{$taskId}}<br/>
     <strong>Due Date:</strong>{{$taskDueDate}} <br/>
     <strong>Task Description:</strong>{{$taskDescription}}<br/>
