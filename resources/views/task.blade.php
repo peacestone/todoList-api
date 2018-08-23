@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Task #{{$task->id}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ URL::asset('css/app.css') }}" type="text/css" rel="stylesheet" >
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" >
 </head>
 <body>
 
