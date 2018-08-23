@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <a href='https://cool-todo-list.herokuapp.com/tasks/{{$id}}'> <button type="button"> Click here to to view this email in HTML </button> </a> <br>
+    <a href='https://cool-todo-list.herokuapp.com/tasks/{{$id}}'> Click here to to view this email in HTML  </a> <br>
     New task:<br/>
 
     <strong>Description</strong>: {{ $description}}
