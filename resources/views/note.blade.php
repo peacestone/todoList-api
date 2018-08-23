@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Task #{{$task->id}}</title>
+    <title>Notes for Task #{{$task->id}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -24,6 +24,27 @@
     <span id='assigned-to-span'><strong>Assigned to</strong></span> <span>{{$task->email}}</span>
   
     <hr>
+    <h5>HISTORY</h5>
+  
+    @foreach ($notes as $note)
+
+    <div  class='note-div' > <br />
+    <span id='time-ago-span'>{{$note->created_time_ago}}</span>
+      @if (!isset($note->img_url))
+      <div>
+        <div>{{$note->content}}</div>
+      </div>
+      @endif
+      
+      @if ($note->img_url)
+      <div>        
+        <img height="350" width="500" src="https://cool-todo-list.herokuapp.com{{$note->img_url}}" />
+      </div>
+      @endif 
+      
+    </div>
+    <br />
+    @endforeach
   </section>
   
 </body>

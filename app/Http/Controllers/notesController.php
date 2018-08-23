@@ -17,9 +17,13 @@ class notesController extends Controller
 {
     public function index(Request $request, $taskId){
 
+        if ($request->wantsJson()) {
+
         $notes = Note::where( 'notes.task_id', $taskId )->latest()->paginate(10);
         return response()->json($notes);
-
+        }
+        $task = Task::find($taskId);
+        return view('note', ['task' => $task , 'notes' => $task->notes]);
     }
 
     public function create(Request $request, $id){
