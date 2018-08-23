@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Task #{{$task->id}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ URL::asset('css/app.css') }}" type="text/css" rel="stylesheet" >
 </head>
 <body>
-<header>
-    <h1 text-center >Task #{{$task->id}}</h1>  
-</header>
+
+<header >Task #{{$task->id}}</header>  
+
   
   <section>
   
