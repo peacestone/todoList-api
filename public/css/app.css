@@ -1,1 +1,107 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.navbar-laravel{background-color:#fff;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.04);box-shadow:0 2px 4px rgba(0,0,0,.04)}html{font-family:Roboto,Helvetica Neue,sans-serif}body{margin:0}header{text-align:center;padding:4px;outline:1px solid #000;font-size:2rem;font-weight:500;color:#424242}#description-label{display:block;padding:1em}#description-div{padding-left:1em}#due-date-span{padding:1em;margin-bottom:1em}#assigned-to-span,#due-date-span{display:inline-block;margin-right:5em}#assigned-to-span{margin-top:1em}hr{margin-top:7em;border:.5px solid #000}h5{text-align:center;margin-bottom:2em}#load-previous-button{border:.5px solid #000}#time-ago-span{text-align:right;display:block;margin-bottom:3em}textarea{width:100%;margin-top:3em}.note-div{padding:1em}#add-note-button{border:.5px solid #000;margin-top:.5em}#picture-button{width:4em;margin:1em auto 3em;display:block}ion-icon{font-size:2em}div.toolbar-background{background-color:#fff}ion-header{border:1px solid #000}
+@import url(https://fonts.googleapis.com/css?family=Nunito);.navbar-laravel {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+html {
+  font-family: Roboto, Helvetica Neue, sans-serif;
+}
+
+body {
+  margin: 0px;
+}
+
+section {
+  margin: 1em;
+}
+
+header {
+  text-align: center;
+  padding: 0px 4px;
+  border: 1px solid black;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #424242;
+}
+
+#description-label {
+  display: block;
+  padding: 1em;
+}
+
+#description-div {
+  padding-left: 1em;
+}
+
+#due-date-span {
+  display: inline-block;
+  padding: 1em;
+  margin-right: 5em;
+  margin-bottom: 1em;
+}
+
+#assigned-to-span {
+  display: inline-block;
+  margin-right: 5em;
+  margin-top: 1em;
+}
+
+hr {
+  margin-top: 7em;
+  border: 0.5px solid black;
+}
+
+h5 {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#load-previous-button {
+  border: 0.5px solid black;
+}
+
+#time-ago-span {
+  text-align: right;
+  display: block;
+  margin-bottom: 3em;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 3em;
+}
+
+.note-div {
+  padding: 1em;
+}
+
+#add-note-button {
+  border: 0.5px solid black;
+  margin-top: 0.5em;
+}
+
+#picture-button {
+  width: 4em;
+  margin: 1em auto 3em auto;
+  display: block;
+}
+
+ion-icon {
+  font-size: 2em;
+}
+
+div.toolbar-background {
+  background-color: white;
+}
+
+ion-header {
+  border: 1px black solid;
+}
+

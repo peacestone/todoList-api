@@ -46,11 +46,15 @@ nav {
 
 }
 
+section {
+  margin: 1em;
+}
+
 header {
   text-align: center;
-  padding: 4px;
+  padding: 0px 4px;
   // min-height: 56px;
-  outline: 1px solid black;
+  border: 1px solid black;
   // padding: 0px 12px;
   font-size: 2rem;
   font-weight: 500;
