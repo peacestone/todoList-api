@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <a href='http://localhost:8000/tasks/{{$id}}' >Click here to to view this email in HTML</a>
+    <a href='https://cool-todo-list.herokuapp.com/tasks/{{$id}}' >Click here to to view this email in HTML</a>
     New task:<br/>
 
     <strong>Description</strong>: {{ $description}}
-
 
 </body>
 </html>
