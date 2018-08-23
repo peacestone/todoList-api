@@ -29,6 +29,6 @@ class TaskAdded extends Mailable
     public function build()
     {
         return $this->subject('Task due on ' . $this->task->dueDate)
-        ->view('emails.taskAdded', ['description' => $this->task->content]);
+        ->view('emails.taskAdded', ['description' => $this->task->content, 'id' => $this->task->id]);
     }
 }

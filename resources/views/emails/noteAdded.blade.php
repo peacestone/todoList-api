@@ -8,6 +8,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <a href="http://localhost:8000/tasks/{{$taskId}}">Click here to view this email in your browser</a>
     <strong>Task id:</strong>{{$taskId}}<br/>
     <strong>Due Date:</strong>{{$taskDueDate}} <br/>
     <strong>Task Description:</strong>{{$taskDescription}}<br/>

@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/task/{id}', 'TasksController@task');
+Route::get('/tasks/{id}', 'tasksController@show');
+Route::get('/tasks/{id}/notes', 'notesController@index');
+
